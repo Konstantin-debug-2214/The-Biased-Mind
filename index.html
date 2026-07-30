@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Biased Mind - Kognitive Verzerrungen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <h1>THE <span>BIASED</span> MIND</h1>
+        <section class="intro">
+            <h2 class="intro-title">Denkfallen sichtbar machen</h2>
+            <p class="intro-text">
+                Kognitive Verzerrungen sind systematische Fehler in der Wahrnehmung,
+                Erinnerung und Bewertung von Informationen, die menschliche Entscheidungen und Urteile beeinflussen.
+                <br>Diese Webseite bietet einen verkürzten Überblick über mehr als 200 kognitive Verzerrungen kategorisiert und mit <strong><em>Beispielen</em></strong> erklärt.<br>
+                <br>Diese Übersicht beansprucht nicht, vollständig zu sein, sondern soll als Einstieg und Inspiration dienen, um die vielfältigen Denkfehler zu verstehen, die unser menschliches Denken beeinflussen können.<br>
+                    Darüber hinaus werden die Verzerrungen in verschiedene Kategorien eingeteilt, um die Navigation zu erleichtern und die Zusammenhänge zwischen ähnlichen Denkfehlern aufzuzeigen.<br>
+                    Heuristiken sind die mentalen Abkürzungen, die das Gehirn benutzt, um schnell zu urteilen. Biases entstehen, wenn diese Abkürzungen zu systematisch falschen Ergebnissen führen. Nicht jede Heuristik führt zwingend zu einem Bias, aber fast jeder kognitive Bias lässt sich auf eine Heuristik zurückführen. Daher werden hier auch Heuristiken aufgelistet.<br>
+                <br><strong>Tippe einen Begriff in die Suche oder klicke auf eine Karte, um mehr über eine Verzerrung zu
+                    erfahren.</strong>
+            </p>
+        </section>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Suche in über 200 Verzerrungen...">
+        </div>
+
+
+    </header>
+
+    <div class="controls-container">
+        <div class="filter-controls" id="filter-container">
+            <button class="filter-btn active" data-filter="all">Alle</button>
+            <button class="filter-btn" data-filter="entscheidung">Entscheidung</button>
+            <button class="filter-btn" data-filter="sozial">Sozial</button>
+            <button class="filter-btn" data-filter="gedaechtnis">Gedächtnis</button>
+            <button class="filter-btn" data-filter="methodik">Methodik/Statistik</button>
+            <button class="filter-btn" data-filter="wahrnehmung">Wahrnehmung</button>
+            <button class="filter-btn" data-filter="logik">Logik</button>
+            <button class="filter-btn" data-filter="technik">Technik/Algorithmus</button>
+            <button class="filter-btn" data-filter="anti-bias">Anti-Bias</button>
+            <button class="filter-btn" data-filter="heuristik">Heuristik</button>
+        </div>
+        <div class="sort-controls" id="sort-container">
+            <button class="sort-btn active" data-sort="default">Standard</button>
+            <button class="sort-btn" data-sort="asc">A-Z</button>
+            <button class="sort-btn" data-sort="desc">Z-A</button>
+        </div>
+    </div>
+
+    <main>
+        <div class="bias-grid" id="bias-grid">
+            <!-- Inhalte werden via script.js generiert -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 The Biased Mind - Enzyklopädie kognitiver Verzerrungen.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
