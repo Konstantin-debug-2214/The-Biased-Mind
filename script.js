@@ -165,7 +165,7 @@ const biases = [
     { name: "Illusion of Competence (Illusion der Kompetenz)", cat: "wahrnehmung", desc: "Menschen überschätzen ihre Fähigkeiten in einem bestimmten Bereich, besonders wenn sie wenig Erfahrung haben.", example: "Ein Anfänger im Schach glaubt, er könne gegen erfahrene Spieler gewinnen, obwohl seine tatsächlichen Fähigkeiten begrenzt sind." },
 
 
-            // LOGIK //25
+            // LOGIK //33
     { name: "Affirming the Consequent (Bestätigung des Folgesatzes)", cat: "logik", desc: "Aus 'Wenn A, dann B' wird fälschlicherweise 'B, also A' gefolgert.", example: "Die Straße ist nass, also hat es geregnet – dabei könnte sie auch gewaschen worden sein." },
     { name: "Denying the Antecedent (Verneinung des Vordersatzes)", cat: "logik", desc: "Aus 'Wenn A, dann B' wird fälschlicherweise 'Nicht A, also nicht B' gefolgert.", example: "Es regnet nicht, also ist die Straße nicht nass – obwohl sie nass sein könnte, weil jemand sie gewaschen hat." },
     { name: "Circular Reasoning / Begging the Question (Zirkelschluss)", cat: "logik", desc: "Die Schlussfolgerung wiederholt lediglich die Prämisse, ohne unabhängige Belege zu liefern.", example: "Das Produkt ist gut, weil viele es kaufen – und viele kaufen es, weil es gut ist." },

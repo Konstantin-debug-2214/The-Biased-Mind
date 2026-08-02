@@ -12,7 +12,7 @@
     --cat-sozial: #9b59b6;
     --cat-gedaechtnis: #76ec76;
     --cat-methodik: #e31f09;
-    --cat-warnehmung: #1abc9c;
+    --cat-wahrnehmung: #1abc9c;
     --cat-logik: #ecf064;
     --cat-technik: #4122be;
     --cat-anti-bias: #95a5a6;
@@ -146,7 +146,7 @@ main {
 }
 
 .bias-card[data-category="wahrnehmung"] {
-    border-top-color: var(--cat-warnehmung);
+    border-top-color: var(--cat-wahrnehmung);
 }
 
 .bias-card[data-category="logik"] {
@@ -224,3 +224,69 @@ main {
     padding-top: 0.5rem;
     border-top: 1px solid #f3f4f6;
 }
+
+/* Glow-Effekt für Filter-Buttons */
+
+.filter-btn[data-filter="entscheidung"]:hover {
+    background-color: var(--cat-entscheidung);
+    border-color: var(--cat-entscheidung);
+    color: var(--header-color);
+    box-shadow: 0 0 12px rgba(223, 135, 58, 0.55);
+}
+
+.filter-btn[data-filter="sozial"]:hover {
+    background-color: var(--cat-sozial);
+    border-color: var(--cat-sozial);
+    color: var(--header-color);
+    box-shadow: 0 0 12px rgba(155, 89, 182, 0.55);
+}   
+
+.filter-btn[data-filter="gedaechtnis"]:hover {
+    background-color: var(--cat-gedaechtnis);
+    border-color: var(--cat-gedaechtnis);
+    color: var(--header-color);
+    box-shadow: 0 0 12px rgba(118, 236, 118, 0.55);
+}
+
+.filter-btn[data-filter="methodik"]:hover {
+    background-color: var(--cat-methodik);
+    border-color: var(--cat-methodik);
+    color: var(--header-color);
+    box-shadow: 0 0 12px rgba(227, 31, 9, 0.55);
+}       
+
+.filter-btn[data-filter="wahrnehmung"]:hover {
+    background-color: var(--cat-wahrnehmung);
+    border-color: var(--cat-wahrnehmung);
+    color: var(--header-color);
+    box-shadow: 0 0 12px rgba(26, 188, 156, 0.55);
+}
+
+.filter-btn[data-filter="logik"]:hover {
+    background-color: var(--cat-logik);
+    border-color: var(--cat-logik);
+    color: var(--header-color);
+    box-shadow: 0 0 12px rgba(236, 240, 100, 0.55);
+}
+
+.filter-btn[data-filter="technik"]:hover {
+    background-color: var(--cat-technik);
+    border-color: var(--cat-technik);
+    color: var(--header-color);
+    box-shadow: 0 0 12px rgba(65, 34, 190, 0.55);
+}
+
+.filter-btn[data-filter="anti-bias"]:hover {
+    background-color: var(--cat-anti-bias);
+    border-color: var(--cat-anti-bias);
+    color: var(--header-color);
+    box-shadow: 0 0 12px rgba(149, 165, 166, 0.55);
+}
+
+.filter-btn[data-filter="heuristik"]:hover {
+    background-color: var(--cat-heuristik);
+    border-color: var(--cat-heuristik);
+    color: var(--header-color);
+    box-shadow: 0 0 12px rgba(179, 243, 18, 0.55);
+}   
+
