@@ -169,6 +169,14 @@ main {
     transform: translateY(-5px);
 }
 
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #777;
+    padding: 3rem 1rem;
+    font-size: 1rem;
+}
+
 .category-tag {
     font-size: 0.65rem;
     text-transform: uppercase;
@@ -288,5 +296,4 @@ main {
     border-color: var(--cat-heuristik);
     color: var(--header-color);
     box-shadow: 0 0 12px rgba(179, 243, 18, 0.55);
-}   
-
+}

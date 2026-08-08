@@ -61,7 +61,7 @@ const biases = [
     { name: "Reactance (Reaktanz)", cat: "entscheidung", desc: "Wenn die eigene Entscheidungsfreiheit eingeschränkt wird, entsteht der Drang, genau die verbotene Option zu wählen.", example: "Ein Jugendlicher will einen Film unbedingt sehen, nachdem seine Eltern ihn verboten haben – obwohl er vorher kein Interesse hatte." },
     { name: "Restraint Bias (Selbstkontrollüberschätzung)", cat: "entscheidung", desc: "Die eigene Fähigkeit, Versuchungen zu widerstehen, wird überschätzt.", example: "Jemand kauft eine große Packung Süßigkeiten, weil er überzeugt ist, nur wenig davon zu essen – und isst sie in einem Sitz leer." },
     { name: "Scope Insensitivity (Umfangsunempfindlichkeit)", cat: "entscheidung", desc: "Die Bereitschaft zu helfen oder zu zahlen steigt kaum mit der Größe eines Problems.", example: "Menschen spenden ähnlich viel für die Rettung von 2.000 Vögeln wie für 200.000 – die Größenordnung beeinflusst die emotionale Reaktion kaum." },
-    { name: "Decision Fatigue (Entscheidungsmüdigkeit)", cat: "entscheidung", desc: "Die Qualität von Entscheidungen verschlechtert sich nach vielen Entscheidungen, weil die mentale Energie erschöpft ist.", example: "Ein Richter fällt am Ende des Tages eher zu Gunsten des Angeklagten aus, weil er müde ist und keine Energie mehr für komplexe Urteile hat." },
+    { name: "Decision fatigue (Entscheidungsmüdigkeit)", cat: "entscheidung", desc: "Die Qualität von Entscheidungen verschlechtert sich nach vielen Entscheidungen, weil die mentale Energie erschöpft ist.", example: "Ein Richter fällt am Ende des Tages eher zu Gunsten des Angeklagten aus, weil er müde ist und keine Energie mehr für komplexe Urteile hat." },
     { name: "Conservatism Bias (Konservatismus-Verzerrung)", cat: "entscheidung", desc: "Nach dem Erhalt neuer, eindeutiger Beweise werden die eigenen Überzeugungen nur unzureichend angepasst.", example: "Ein Analyst erhält klare neue Marktdaten, korrigiert seine ursprüngliche Prognose aber nur minimal, statt sie grundlegend zu überarbeiten." },
     { name: "Opportunity Cost Neglect (Vernachlässigung von Opportunitätskosten)", cat: "entscheidung", desc: "Bei einer Entscheidung werden die Kosten entgangener Alternativen systematisch übersehen.", example: "Jemand kauft ein teures Auto bar, ohne zu bedenken, was das investierte Geld stattdessen an Zinsen hätte einbringen können." },
     { name: "Overprecision (Übergenauigkeit)", cat: "entscheidung", desc: "Das eigene Wissen wird mit übertriebener Sicherheit als präzise und zuverlässig eingeschätzt.", example: "Ein Analyst gibt eine Umsatzprognose mit einem sehr engen Schwankungsbereich an – die tatsächlichen Werte liegen regelmäßig deutlich außerhalb dieses Bereichs." },
@@ -126,6 +126,7 @@ const biases = [
     { name: "Illusion of Asymmetric Insight (Illusion asymmetrischer Einsicht)", cat: "sozial", desc: "Man glaubt, andere Menschen besser zu kennen und zu verstehen, als sie einen selbst verstehen.", example: "Jemand ist überzeugt, die Motive eines Freundes genau zu durchschauen, geht aber gleichzeitig davon aus, dass die eigenen Beweggründe für andere kaum nachvollziehbar sind." },
     { name: "Illusion of Transparency (Transparenzillusion)", cat: "sozial", desc: "Man überschätzt, wie deutlich andere die eigenen Gedanken und Gefühle erkennen können.", example: "Bei einer nervösen Präsentation glaubt der Redner, seine Aufregung sei für alle im Raum offensichtlich – tatsächlich bemerkt sie kaum jemand." },
     { name: "Gender Bias (Geschlechterverzerrung)", cat: "sozial", desc: "Menschen werden aufgrund ihres Geschlechts unterschiedlich bewertet oder behandelt, unabhängig von ihrer tatsächlichen Leistung oder Eignung.", example: "Bei identischem Lebenslauf wird eine Bewerbung mit männlich klingendem Namen in Studien häufiger zum Gespräch eingeladen als dieselbe Bewerbung mit weiblich klingendem Namen." },
+    { name: "Motornormalität (Motornormativity)", cat: "wahrnehmung", desc: "Gesellschaftliche Strukturen bevorzugen normative Bewegungsfähigkeiten und machen Menschen mit abweichender Mobilität unsichtbar.", example: "Städte werden primär für schnelle, autonome Mobilität geplant – Menschen mit Mobilitätseinschränkungen, Kinder und ältere Menschen werden dabei systematisch benachteiligt." },
     
 
              // GEDÄCHTNIS //33
@@ -225,7 +226,6 @@ const biases = [
     { name: "Weber-Fechner Law (Weber-Fechner-Gesetz)", cat: "wahrnehmung", desc: "Kleine Unterschiede in großen Reizmengen werden schwerer wahrgenommen als gleich große Unterschiede in kleinen Reizmengen.", example: "Der Unterschied zwischen 1 und 2 Kerzen im dunklen Raum ist deutlich sichtbar – der gleiche Helligkeitsunterschied fällt bei 100 zu 101 Kerzen kaum noch auf." },
     { name: "Well-Travelled Road Effect (Vielbefahrene-Straße-Effekt)", cat: "wahrnehmung", desc: "Die Dauer einer vertrauten Strecke wird unterschätzt, die einer neuen, unbekannten Strecke dagegen überschätzt.", example: "Der tägliche Arbeitsweg fühlt sich kürzer an als eine neue, objektiv gleich lange Route, die man zum ersten Mal fährt." },
     { name: "Salience Bias (Salienzverzerrung)", cat: "wahrnehmung", desc: "Auffällige, hervorstechende Reize ziehen überproportional viel Aufmerksamkeit auf sich und beeinflussen dadurch das Urteil stärker als unauffällige, aber relevantere Informationen.", example: "Bei einer Präsentation bleibt vor allem die eine grelle rote Folie im Gedächtnis – die inhaltlich wichtigeren, schlichter gestalteten Folien geraten in Vergessenheit." },
-    { name: "Motornormalität (Motornormativity)", cat: "wahrnehmung", desc: "Gesellschaftliche Strukturen bevorzugen normative Bewegungsfähigkeiten und machen Menschen mit abweichender Mobilität unsichtbar.", example: "Städte werden primär für schnelle, autonome Mobilität geplant – Menschen mit Mobilitätseinschränkungen, Kinder und ältere Menschen werden dabei systematisch benachteiligt." },
 
 
             // LOGIK //34
@@ -325,8 +325,6 @@ const biases = [
     { name: "Effort Heuristic (Aufwandsheuristik)", cat: "heuristik", desc: "Der wahrgenommene Aufwand hinter einem Produkt oder einer Leistung wird als Indikator für dessen Qualität genutzt.", example: "Ein handgefertigtes Möbelstück wird als hochwertiger eingestuft als ein maschinell produziertes – obwohl die objektive Qualität gleich sein kann." },
     { name: "Peak-End Rule (Spitzenwert-Ende-Regel)", cat: "heuristik", desc: "Erlebnisse werden nicht nach ihrem Durchschnitt bewertet, sondern fast ausschließlich nach dem intensivsten Moment und dem Ende.", example: "Ein Urlaub mit einem grandiosen letzten Tag wird besser erinnert als ein gleichmäßig angenehmer Urlaub ohne herausragendes Ende." },
 
-
-    //Gesamtanzahl: 284
 ]
 
 // Such- und Filterfunktionen sowie die Logik zum Rendern der Bias-Karten
@@ -365,27 +363,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Ermittelt, WO ein Suchbegriff trifft: 'name' (hohe Relevanz) oder 'text'
+    // (nur in Beschreibung/Beispiel gefunden, niedrigere Relevanz). null = kein Treffer.
+    function getMatchType(bias, search) {
+        if (!search) return 'match';
+        if (bias.name.toLowerCase().includes(search)) return 'name';
+        if (bias.desc.toLowerCase().includes(search) || bias.example.toLowerCase().includes(search)) return 'text';
+        return null;
+    }
+
     function update() {
-        const search = searchInput.value.toLowerCase();
+        const search = searchInput.value.toLowerCase().trim();
         const activeFilter = filterContainer.querySelector('.filter-btn.active').dataset.filter;
         const activeSort = sortContainer.querySelector('.sort-btn.active').dataset.sort;
 
-        let filtered = biases.filter(b => {
-            const matchesSearch = b.name.toLowerCase().includes(search);
-            const matchesFilter = activeFilter === 'all' || b.cat === activeFilter;
-            return matchesSearch && matchesFilter;
-        });
+        let filtered = biases
+            .map(b => ({ bias: b, matchType: getMatchType(b, search) }))
+            .filter(entry => {
+                const matchesFilter = activeFilter === 'all' || entry.bias.cat === activeFilter;
+                return matchesFilter && entry.matchType !== null;
+            });
 
         if (activeSort === 'asc') {
-            filtered.sort((a, b) => a.name.localeCompare(b.name));
+            filtered.sort((a, b) => a.bias.name.localeCompare(b.bias.name));
         } else if (activeSort === 'desc') {
-            filtered.sort((a, b) => b.name.localeCompare(a.name));
+            filtered.sort((a, b) => b.bias.name.localeCompare(a.bias.name));
+        } else if (search) {
+            // Standard-Sortierung + aktive Suche: Treffer im Namen zuerst,
+            // danach Treffer, die nur in Beschreibung/Beispiel gefunden wurden.
+            filtered.sort((a, b) => (a.matchType === b.matchType) ? 0 : (a.matchType === 'name' ? -1 : 1));
         }
 
-        renderCards(filtered);
+        const results = filtered.map(entry => entry.bias);
+        renderCards(results);
+
+        if (results.length === 0) {
+            grid.innerHTML = '<p class="no-results">Keine Treffer gefunden. Versuche einen anderen Suchbegriff oder Filter.</p>';
+        }
     }
 
-    searchInput.oninput = update;
+    // Debounce: erst 120ms nach der letzten Eingabe wird tatsächlich gefiltert/gerendert,
+    // damit nicht bei jedem Tastendruck die volle Filter- und Render-Pipeline läuft.
+    let searchDebounce;
+    searchInput.oninput = () => {
+        clearTimeout(searchDebounce);
+        searchDebounce = setTimeout(update, 120);
+    };
 
     filterContainer.onclick = (e) => {
         if (!e.target.classList.contains('filter-btn')) return;
@@ -403,7 +426,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCards(biases);
 });
-
-
-
-
