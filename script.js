@@ -17,7 +17,7 @@
 
 
 const biases = [
-            // ENTSCHEIDUNG //64
+            // ENTSCHEIDUNG //71
     { name: "Action Bias (Handlungsdrang)", cat: "entscheidung", desc: "Der Drang, aktiv zu handeln, selbst wenn Abwarten die bessere Strategie wäre.", example: "Ein Fußballtorhüter springt bei einem Elfmeter fast immer in eine Ecke – obwohl statistisch gesehen das Stehenbleiben in der Mitte erfolgreicher wäre." },
     { name: "Anchoring (Ankereffekt)", cat: "entscheidung", desc: "Die erste genannte Information dient als Referenzpunkt und verzerrt alle nachfolgenden Urteile.", example: "Ein Verkäufer nennt zuerst einen überhöhten Preis – der tatsächliche Preis wirkt danach wie ein Schnäppchen, auch wenn er noch immer hoch ist." },
     { name: "Base Rate Fallacy (Basisratenfehlschluss)", cat: "entscheidung", desc: "Statistische Grundraten werden zugunsten spezifischer Einzelinformationen vernachlässigt.", example: "Ein positiver Test für eine seltene Krankheit wird als sicherer Beweis gewertet – obwohl die niedrige Grundrate bedeutet, dass viele positive Tests falsch sind." },
@@ -83,6 +83,15 @@ const biases = [
     { name: "Observer-Expectancy Effect (Beobachtererwartungseffekt)", cat: "entscheidung", desc: "Die Erwartungen eines Beobachters beeinflussen unbewusst das Ergebnis eines Experiments oder einer Untersuchung.", example: "Ein Forscher, der an die Wirksamkeit eines Medikaments glaubt, interpretiert mehrdeutige Patientendaten unbewusst als positiv." },
     { name: "Observer-Expectancy Effect (Beobachtererwartungseffekt)", cat: "entscheidung", desc: "Die Erwartungen eines Beobachters beeinflussen unbewusst die Interpretation von Ergebnissen in die erwartete Richtung.", example: "Ein Forscher, der erwartet, dass ein Medikament stark wirkt, ordnet eine mehrdeutige Patientenreaktion eher als 'Verbesserung' ein – statt als 'keine Veränderung'." },
     { name: "Blind Spot Bias in Decisions (Entscheidungs-Blinder-Fleck)", cat: "entscheidung", desc: "Weil man den eigenen Bias nicht erkennt, fließt er unkontrolliert in Entscheidungen ein und verzerrt sie systematisch.", example: "Ein Manager hält sich für besonders neutral – und bevorzugt trotzdem unbewusst die eigene Abteilung bei Ressourcenentscheidungen, weil er seinen blinden Fleck nicht einkalkuliert." },
+    { name: "Murphy's Law (Murphys Gesetz)", cat: "entscheidung", desc: "Die Erwartung, dass alles, was schiefgehen kann, auch schiefgehen wird, beeinflusst Risikowahrnehmung und Entscheidungen.", example: "Ein Projektmanager plant übermäßig viele Puffer ein, weil er fest davon überzeugt ist, dass garantiert etwas schieflaufen wird." },
+    { name: "Zero-Sum Thinking (Nullsummen-Denken)", cat: "entscheidung", desc: "Eine Situation wird fälschlicherweise als Nullsummenspiel wahrgenommen, obwohl alle Beteiligten gewinnen könnten.", example: "In Verhandlungen glaubt jemand, jedes Zugeständnis an die Gegenseite sei automatisch ein Verlust für sich selbst – obwohl eine Einigung für beide vorteilhaft wäre." },
+    { name: "Risk Compensation (Risikoausgleich)", cat: "entscheidung", desc: "Menschen gehen mehr Risiken ein, wenn sie sich durch Schutzmaßnahmen sicherer fühlen.", example: "Autofahrer fahren schneller und unvorsichtiger, wenn sie Sicherheitsgurt und Airbag haben – weil das subjektive Sicherheitsgefühl steigt." },
+    { name: "Subadditivity Effect (Subadditivitätseffekt)", cat: "entscheidung", desc: "Die Wahrscheinlichkeit eines Gesamtereignisses wird als geringer eingeschätzt als die Summe seiner Teilwahrscheinlichkeiten.", example: "Jemand schätzt die Wahrscheinlichkeit 'Tod durch irgendeine Krankheit' geringer ein als die Summe der Einzelwahrscheinlichkeiten aller Krankheiten zusammen." },
+    { name: "Self-Consistency Bias (Selbstkonsistenz-Verzerrung)", cat: "entscheidung", desc: "Menschen überschätzen, wie konsistent ihr vergangenes Verhalten und ihre früheren Überzeugungen mit ihrem heutigen Selbstbild waren.", example: "Jemand erinnert sich, schon immer umweltbewusst gewesen zu sein – obwohl er früher kaum auf Nachhaltigkeit geachtet hat." },
+    { name: "Pro-Innovation Bias (Pro-Innovations-Verzerrung)", cat: "entscheidung", desc: "Neue Innovationen werden unkritisch positiv bewertet, während ihre Nachteile oder Risiken systematisch unterschätzt werden.", example: "Ein Unternehmen führt eine neue Software ein, weil sie modern und innovativ wirkt – ohne die tatsächlichen Kosten, Lernkurven oder Risiken zu prüfen." },
+    { name: "Declinism (Verfallsdenken)", cat: "entscheidung", desc: "Die Vergangenheit wird idealisiert und die Gegenwart oder Zukunft als schlechter wahrgenommen, als sie tatsächlich ist.", example: "'Früher war alles besser' – obwohl objektive Daten zeigen, dass Lebensqualität, Gesundheit und Wohlstand gestiegen sind." },
+
+
 
             // SOZIAL //49
     { name: "Actor-Observer Bias (Akteur-Beobachter-Bias)", cat: "sozial", desc: "Eigenes Verhalten wird auf äußere Umstände zurückgeführt, das Verhalten anderer auf deren Charakter.", example: "Du kommst zu spät, weil der Bus Verspätung hatte – ein Freund kommt zu spät und du denkst: 'Der ist halt unpünktlich.'" },
@@ -138,7 +147,7 @@ const biases = [
     { name: "Essentialism (Essentialismus)", cat: "sozial", desc: "Gruppen oder Kategorien wird eine unveränderliche, wesenhafte Eigenschaft zugeschrieben, die alle Mitglieder teilen.", example: "Jemand glaubt, Frauen seien 'von Natur aus' fürsorglicher als Männer – ohne kulturelle oder situative Einflüsse zu berücksichtigen." },
 
 
-             // GEDÄCHTNIS //36
+             // GEDÄCHTNIS //37
     { name: "Backfire Effect (Widerlegungseffekt)", cat: "gedaechtnis", desc: "Gegenbeweise führen dazu, dass man an einer falschen Überzeugung noch stärker festhält.", example: "Eine sachliche Widerlegung einer Verschwörungstheorie lässt den Gläubigen die Theorie noch fester vertreten und die Quelle der Korrektur misstrauen." },
     { name: "Fading Affect Bias (Affektverblassungs-Bias)", cat: "gedaechtnis", desc: "Negative Gefühle verblassen in der Erinnerung schneller als positive.", example: "Ein heftiger Streit wirkt nach Monaten emotional weniger intensiv, während die Freude über dasselbe Ereignis länger bestehen bleibt." },
     { name: "Hindsight Bias (Rückschaufehler)", cat: "gedaechtnis", desc: "Nach einem Ereignis glaubt man, man hätte es vorausgesehen.", example: "Nach einem Börsencrash behaupten viele, sie hätten ihn kommen sehen – obwohl sie vorher keine erhöhte Wahrscheinlichkeit angegeben hatten." },
@@ -175,6 +184,9 @@ const biases = [
     { name: "Bizarreness Effect (Bizarrheitseffekt)", cat: "gedaechtnis", desc: "Bizarre oder ungewöhnliche Informationen werden besser erinnert als gewöhnliche.", example: "Eine absurde Eselsbrücke – etwa ein tanzendes Einhorn für einen Vokabelbegriff – bleibt länger im Gedächtnis als eine sachliche Assoziation." },
     { name: "Confabulation (Konfabulation)", cat: "gedaechtnis", desc: "Gedächtnislücken werden unbewusst mit erfundenen, aber subjektiv als wahr erlebten Erinnerungen gefüllt.", example: "Ein Patient mit Gedächtnisschäden berichtet überzeugend von Ereignissen, die nie stattgefunden haben – ohne zu lügen oder es zu merken." },
     { name: "Recency Illusion (Neuheitsillusion)", cat: "gedaechtnis", desc: "Man glaubt, ein Wort oder eine Redewendung sei neu oder modern – obwohl es sie schon lange gibt.", example: "Jemand ist überzeugt, das Wort 'literally' werde erst seit kurzem umgangssprachlich verwendet – tatsächlich gibt es diesen Gebrauch seit Jahrhunderten." },
+    { name: "Miller's Law (Millersche Zahl)", cat: "gedaechtnis", desc: "Das Arbeitsgedächtnis kann nur etwa 7 (± 2) Informationseinheiten gleichzeitig verarbeiten und behalten.", example: "Telefonnummern werden weltweit meist in Blöcken von 3–4 Ziffern formatiert, weil das Gehirn längere Zahlenfolgen schlechter im Kurzzeitgedächtnis hält." },
+
+
 
              // METHODIK / STATISTIK //29
     { name: "Algorithmic Bias (Algorithmische Verzerrung)", cat: "methodik", desc: "Algorithmen produzieren systematisch fehlerhafte Ergebnisse, weil ihre Trainingsdaten bereits verzerrt sind.", example: "Eine KI zur Kreditvergabe lehnt bestimmte Bevölkerungsgruppen häufiger ab, weil historische Daten deren Benachteiligung widerspiegeln." },
@@ -208,7 +220,7 @@ const biases = [
     { name: "Observer Bias (Beobachterverzerrung)", cat: "methodik", desc: "Jede Form systematischer Verzerrung durch Beobachter, die unbewusst Daten anders wahrnehmen oder interpretieren als sie tatsächlich sind.", example: "Eine Ärztin misst einen Hautbefund bei zwei Patientinnen – weil sie weiß, dass Patientin A hohes Risiko hat, interpretiert sie Randbereiche unbewusst anders als bei Patientin B." },
 
 
-            // WAHRNEHMUNG //32
+            // WAHRNEHMUNG //34
     { name: "Attentional Bias (Aufmerksamkeitsverzerrung)", cat: "wahrnehmung", desc: "Die Aufmerksamkeit richtet sich bevorzugt auf bestimmte Reize, wodurch andere Informationen vernachlässigt werden.", example: "Ein Arzt bemerkt vor allem Symptome, die zu einer kürzlich gesehenen Diagnose passen, und übersieht Hinweise auf eine andere Krankheit." },
     { name: "Change Blindness (Veränderungsblindheit)", cat: "wahrnehmung", desc: "Offensichtliche Veränderungen in einer visuellen Szene werden nicht wahrgenommen, wenn die Aufmerksamkeit kurz unterbrochen wird.", example: "In einem Experiment wird während eines kurzen Schnitts die Person im Bild ausgetauscht – die meisten Beobachter bemerken es nicht." },
     { name: "Inattentional Blindness (Unaufmerksamkeitsblindheit)", cat: "wahrnehmung", desc: "Unerwartete Objekte oder Ereignisse werden nicht wahrgenommen, wenn die Aufmerksamkeit auf etwas anderes gerichtet ist.", example: "Versuchspersonen, die Pässe beim Basketball zählen, übersehen einen Mann im Gorillakostüm, der durchs Bild läuft." },
@@ -240,6 +252,9 @@ const biases = [
     { name: "Frequency Illusion (Frequenzillusion)", cat: "wahrnehmung", desc: "Nachdem man etwas zum ersten Mal bemerkt hat, nimmt man es plötzlich überall wahr – obwohl es vorher genauso häufig vorkam.", example: "Wer sich ein bestimmtes Auto kauft, sieht dieses Modell plötzlich überall auf der Straße – obwohl es vorher genauso häufig fuhr." },
     { name: "Selective Perception (Selektive Wahrnehmung)", cat: "wahrnehmung", desc: "Menschen nehmen bevorzugt Informationen wahr, die ihren Erwartungen und Überzeugungen entsprechen, und blenden Widersprüchliches aus.", example: "Ein überzeugter Fußballfan sieht Fouls des Gegners sofort – Fouls des eigenen Teams fallen ihm kaum auf." },
     { name: "Subjective Validation (Subjektive Validierung)", cat: "wahrnehmung", desc: "Eine Aussage wird als wahr empfunden, weil sie persönlich bedeutsam erscheint – unabhängig davon, ob sie objektiv zutrifft.", example: "Jemand ist überzeugt, dass sein Horoskop ihn perfekt beschreibt – obwohl dieselbe Beschreibung auf Millionen andere zutrifft." },
+    { name: "Cheerleader Effect (Cheerleader-Effekt)", cat: "wahrnehmung", desc: "Personen werden als attraktiver wahrgenommen, wenn sie in einer Gruppe sind, als wenn sie alleine betrachtet werden.", example: "Ein Gruppenfoto wirkt attraktiver als die Einzelfotos derselben Personen – das Gehirn mittelt die Gesichter und gleicht Unregelmäßigkeiten aus." },
+    { name: "Well-Travelled Road Effect (Vielbefahrene-Straße-Effekt)", cat: "wahrnehmung", desc: "Die Dauer einer vertrauten Strecke wird unterschätzt, die einer neuen, unbekannten Strecke dagegen überschätzt.", example: "Der tägliche Arbeitsweg fühlt sich kürzer an als eine neue, objektiv gleich lange Route, die man zum ersten Mal fährt." },
+
 
 
             // LOGIK //36
@@ -279,7 +294,8 @@ const biases = [
     { name: "Appeal to Novelty (Neuheitsappell)", cat: "logik", desc: "Etwas wird als besser oder richtiger bewertet, allein weil es neu oder modern ist.", example: "'Diese Methode ist brandneu, also muss sie besser funktionieren als die alte' – ohne dass die neue Methode tatsächlich belegt bessere Ergebnisse liefert." },
     { name: "Masked-Man Fallacy (Maskierter-Mann-Fehlschluss)", cat: "logik", desc: "Aus der unterschiedlichen Beschreibung desselben Objekts wird fälschlicherweise auf zwei verschiedene Objekte geschlossen.", example: "'Lois Lane weiß, dass Superman fliegen kann, aber nicht, dass Clark Kent fliegen kann – also sind Superman und Clark Kent verschiedene Personen.' Obwohl sie dieselbe Person sind." },
     { name: "Argument from Fallacy (Fehlschluss aus dem Fehlschluss)", cat: "logik", desc: "Weil ein Argument einen logischen Fehler enthält, wird angenommen, dass die Schlussfolgerung falsch sein muss.", example: "'Dein Argument für den Klimawandel ist ein Strohmann-Argument – also gibt es keinen Klimawandel.' Ein schlechtes Argument macht die Schlussfolgerung nicht automatisch falsch." },
-
+    { name: "Appeal to Probability (Appell an die Wahrscheinlichkeit)", cat: "logik", desc: "Weil etwas möglich oder wahrscheinlich ist, wird angenommen, dass es zwingend eintreten wird.", example: "'Irgendwann wird es einen großen Cyberangriff geben – also sollten wir jetzt schon so handeln, als wäre er bereits passiert.'" },
+    { name: "Tolerance Paradox (Toleranz-Paradoxon)", cat: "logik", desc: "Eine unbegrenzt tolerante Gesellschaft wird schließlich von Intoleranten übernommen – unbegrenzte Toleranz schließt also ihre eigene Abschaffung ein.", example: "'Wenn wir alle Meinungen tolerieren, müssen wir auch intolerante Meinungen tolerieren – was letztlich die Toleranz selbst zerstört.'" },
 
 
             // TECHNIK //17
