@@ -16,8 +16,20 @@
  */
 
 
+//Bias des Tages/ Bias of the Day
+// card.innerHTML = `
+//     <span class="category">${biases[randomIndex].cat}</span>
+//     <h3>${biases[randomIndex].name}</h3>
+//     <p>${biases[randomIndex].desc}</p>
+//     <p><strong>Beispiel:</strong> ${biases[randomIndex].example}</p>
+// `;
+
+
+
+
+
 const biases = [
-            // ENTSCHEIDUNG //77
+            // ENTSCHEIDUNG //78
     { name: "Action Bias (Handlungsdrang)", cat: "entscheidung", desc: "Der Drang, aktiv zu handeln, selbst wenn Abwarten die bessere Strategie wäre.", example: "Ein Fußballtorhüter springt bei einem Elfmeter fast immer in eine Ecke – obwohl statistisch gesehen das Stehenbleiben in der Mitte erfolgreicher wäre." },
     { name: "Anchoring (Ankereffekt)", cat: "entscheidung", desc: "Die erste genannte Information dient als Referenzpunkt und verzerrt alle nachfolgenden Urteile.", example: "Ein Verkäufer nennt zuerst einen überhöhten Preis – der tatsächliche Preis wirkt danach wie ein Schnäppchen, auch wenn er noch immer hoch ist." },
     { name: "Base Rate Fallacy (Basisratenfehlschluss)", cat: "entscheidung", desc: "Statistische Grundraten werden zugunsten spezifischer Einzelinformationen vernachlässigt.", example: "Ein positiver Test für eine seltene Krankheit wird als sicherer Beweis gewertet – obwohl die niedrige Grundrate bedeutet, dass viele positive Tests falsch sind." },
@@ -146,7 +158,7 @@ const biases = [
     { name: "Illusion of Asymmetric Insight (Illusion asymmetrischer Einsicht)", cat: "sozial", desc: "Man glaubt, andere Menschen besser zu kennen und zu verstehen, als sie einen selbst verstehen.", example: "Jemand ist überzeugt, die Motive eines Freundes genau zu durchschauen, geht aber gleichzeitig davon aus, dass die eigenen Beweggründe für andere kaum nachvollziehbar sind." },
     { name: "Illusion of Transparency (Transparenzillusion)", cat: "sozial", desc: "Man überschätzt, wie deutlich andere die eigenen Gedanken und Gefühle erkennen können.", example: "Bei einer nervösen Präsentation glaubt der Redner, seine Aufregung sei für alle im Raum offensichtlich – tatsächlich bemerkt sie kaum jemand." },
     { name: "Gender Bias (Geschlechterverzerrung)", cat: "sozial", desc: "Menschen werden aufgrund ihres Geschlechts unterschiedlich bewertet oder behandelt, unabhängig von ihrer tatsächlichen Leistung oder Eignung.", example: "Bei identischem Lebenslauf wird eine Bewerbung mit männlich klingendem Namen in Studien häufiger zum Gespräch eingeladen als dieselbe Bewerbung mit weiblich klingendem Namen." },
-    { name: "Motornormalität (Motornormativity)", cat: "wahrnehmung", desc: "Gesellschaftliche Strukturen bevorzugen normative Bewegungsfähigkeiten und machen Menschen mit abweichender Mobilität unsichtbar.", example: "Städte werden primär für schnelle, autonome Mobilität geplant – Menschen mit Mobilitätseinschränkungen, Kinder und ältere Menschen werden dabei systematisch benachteiligt." },
+    { name: "Motornormalität (Motornormativity)", cat: "sozial", desc: "Gesellschaftliche Strukturen bevorzugen normative Bewegungsfähigkeiten und machen Menschen mit abweichender Mobilität unsichtbar.", example: "Städte werden primär für schnelle, autonome Mobilität geplant – Menschen mit Mobilitätseinschränkungen, Kinder und ältere Menschen werden dabei systematisch benachteiligt." },
     { name: "Group Attribution Error (Gruppenattributionsfehler)", cat: "sozial", desc: "Das Verhalten einzelner Mitglieder einer Gruppe wird fälschlicherweise als repräsentativ für die gesamte Gruppe gewertet.", example: "Ein schlechtes Erlebnis mit einer Person aus einem bestimmten Land wird als typisch für alle Menschen dieses Landes interpretiert." },
     { name: "In-Group Favoritism (Eigengruppen-Bevorzugung)", cat: "sozial", desc: "Mitglieder der eigenen Gruppe werden systematisch bevorzugt behandelt, auch wenn keine objektiven Gründe dafür vorliegen.", example: "Bei der Vergabe von Aufgaben werden Teammitglieder aus der eigenen Abteilung bevorzugt – obwohl externe Kollegen besser geeignet wären." },
     { name: "Essentialism (Essentialismus)", cat: "sozial", desc: "Gruppen oder Kategorien wird eine unveränderliche, wesenhafte Eigenschaft zugeschrieben, die alle Mitglieder teilen.", example: "Jemand glaubt, Frauen seien 'von Natur aus' fürsorglicher als Männer – ohne kulturelle oder situative Einflüsse zu berücksichtigen." },
@@ -278,7 +290,7 @@ const biases = [
     { name: "Processing Difficulty Effect (Verarbeitungsschwierigkeits-Effekt)", cat: "wahrnehmung", desc: "Informationen, die schwerer zu verarbeiten sind, werden manchmal gründlicher verarbeitet und dadurch besser behalten.", example: "Ein Text in einer schwer leserlichen Schriftart wird manchmal besser erinnert als derselbe Text in einer gut leserlichen Schrift, weil das Gehirn ihn aufmerksamer verarbeitet." },
 
 
-            // LOGIK //36
+            // LOGIK //38
     { name: "Affirming the Consequent (Bestätigung des Folgesatzes)", cat: "logik", desc: "Aus 'Wenn A, dann B' wird fälschlicherweise 'B, also A' gefolgert.", example: "Die Straße ist nass, also hat es geregnet – dabei könnte sie auch gewaschen worden sein." },
     { name: "Denying the Antecedent (Verneinung des Vordersatzes)", cat: "logik", desc: "Aus 'Wenn A, dann B' wird fälschlicherweise 'Nicht A, also nicht B' gefolgert.", example: "Es regnet nicht, also ist die Straße nicht nass – obwohl sie nass sein könnte, weil jemand sie gewaschen hat." },
     { name: "Circular Reasoning / Begging the Question (Zirkelschluss)", cat: "logik", desc: "Die Schlussfolgerung wiederholt lediglich die Prämisse, ohne unabhängige Belege zu liefern.", example: "Das Produkt ist gut, weil viele es kaufen – und viele kaufen es, weil es gut ist." },
@@ -365,7 +377,7 @@ const biases = [
     { name: "Psychological Safety (Psychologische Sicherheit)", cat: "anti-bias", desc: "Ein Teamklima, in dem sich Mitglieder trauen, Fehler, Bedenken oder abweichende Meinungen offen zu äußern, ohne negative Konsequenzen zu befürchten.", example: "In einem Team mit hoher psychologischer Sicherheit meldet ein Mitarbeiter frühzeitig einen eigenen Fehler – und verhindert so einen größeren Schaden für das Projekt." },
     { name: "Occam's Razor (Ockhams Rasiermesser)", cat: "anti-bias", desc: "Unter mehreren Erklärungen für einen Sachverhalt sollte die mit den wenigsten Annahmen, also die einfachste Antwort, bevorzugt werden.", example: "Springt das Auto nicht an, ist eine leere Batterie die naheliegendere Erklärung als eine Sabotage – auch wenn beides theoretisch möglich wäre." },
     
-            // HEURISTIKEN //14
+            // HEURISTIKEN //15
     { name: "Representativeness Heuristic (Repräsentativitätsheuristik)", cat: "heuristik", desc: "Wahrscheinlichkeiten werden danach eingeschätzt, wie sehr etwas einem typischen Prototyp ähnelt.", example: "Jemand schließt, dass eine ruhige, brillentragende Person eher Bibliothekar als LKW-Fahrer ist – obwohl es statistisch viel mehr LKW-Fahrer gibt." },
     { name: "Anchoring Heuristic (Ankerheuristik)", cat: "heuristik", desc: "Der erste genannte Wert dient als Anker und beeinflusst alle folgenden Schätzungen unverhältnismäßig stark.", example: "Ein Verkäufer nennt zuerst einen überhöhten Preis – der tatsächliche Verkaufspreis wirkt danach wie ein Schnäppchen, auch wenn er noch immer hoch ist." },
     { name: "Affect Heuristic (Affektheuristik)", cat: "heuristik", desc: "Entscheidungen werden stärker von aktuellen Gefühlen und Stimmungen geleitet als von rationaler Abwägung.", example: "In guter Stimmung bewertet man Risiken geringer und trifft optimistischere Entscheidungen – etwa beim Kauf einer Aktie." },
@@ -380,7 +392,7 @@ const biases = [
     { name: "Effort Heuristic (Aufwandsheuristik)", cat: "heuristik", desc: "Der wahrgenommene Aufwand hinter einem Produkt oder einer Leistung wird als Indikator für dessen Qualität genutzt.", example: "Ein handgefertigtes Möbelstück wird als hochwertiger eingestuft als ein maschinell produziertes – obwohl die objektive Qualität gleich sein kann." },
     { name: "Peak-End Rule (Spitzenwert-Ende-Regel)", cat: "heuristik", desc: "Erlebnisse werden nicht nach ihrem Durchschnitt bewertet, sondern fast ausschließlich nach dem intensivsten Moment und dem Ende.", example: "Ein Urlaub mit einem grandiosen letzten Tag wird besser erinnert als ein gleichmäßig angenehmer Urlaub ohne herausragendes Ende." },
     { name: "Rhyme-as-Reason Effect (Reim-als-Vernunft-Effekt)", cat: "heuristik", desc: "Aussagen, die sich reimen, werden als wahrer oder überzeugender eingeschätzt als inhaltlich identische, nicht gereimte Aussagen.", example: "Werbeslogans, die sich reimen, wie 'Ehrmann, keiner macht mich mehr an', wirken einprägsamer und überzeugender als sachliche Aussagen – unabhängig vom Wahrheitsgehalt." },
-
+    { name: "Complexity Bias (Komplexitätsverzerrung)", cat: "heuristik", desc: "Komplexe Erklärungen oder Lösungen werden als glaubwürdiger oder richtiger wahrgenommen als einfache.", example: "Ein kompliziert klingender medizinischer Fachbegriff wird eher als valide Diagnose akzeptiert als eine einfache Erklärung – auch wenn beide gleichwertig sind. Z.B. Jemand erklärt einen Leistungsabfall mit einem komplexen Zusammenspiel aus Hormonen, Persönlichkeit und sozialen Faktoren (Schlafmangel)." },
 ]
 
 // Such- und Filterfunktionen sowie die Logik zum Rendern der Bias-Karten
