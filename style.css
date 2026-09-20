@@ -297,3 +297,13 @@ main {
     color: var(--header-color);
     box-shadow: 0 0 12px rgba(179, 243, 18, 0.10);
 }
+
+#bias-of-the-day {
+    background-color: white;
+    color: var(--header-color);
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
