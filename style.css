@@ -34,6 +34,11 @@ header, footer {
     padding: 2rem 1rem;
 }
 
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
 header h1 {
     margin: 0;
     font-size: 2.8rem;
@@ -306,4 +311,11 @@ main {
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.a {
+    text-align: center;
+    color: var(--primary-bg);
+    text-decoration: none;
+
 }
