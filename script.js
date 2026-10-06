@@ -397,6 +397,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterContainer = document.getElementById('filter-container');
     const sortContainer = document.getElementById('sort-container');
 
+    // Auf Seiten ohne Karten-Grid (z. B. quiz.html) wird nur das biases-Array benötigt
+    if (!grid) return;
+
     function renderCards(data) {
         grid.innerHTML = '';
         data.forEach(bias => {

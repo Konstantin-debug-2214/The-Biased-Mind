@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Bias-Quiz – The Biased Mind</title>
+    <meta name="description" content="Teste dein Wissen über kognitive Verzerrungen, Denkfehler und Heuristiken.">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#2c3e50">
+    <link rel="icon" href="icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Bias-Quiz">
+
+    <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+
+    <header class="app-bar">
+        <span class="app-title">THE <span>BIASED</span> MIND</span>
+        <span class="app-sub">Quiz</span>
+    </header>
+
+    <main class="app-main">
+
+        <!-- 1. Startbildschirm -->
+        <section id="quiz-start" class="panel">
+            <h1>Erkennst du die Denkfalle?</h1>
+            <p class="lead" id="pool-info">Teste dein Wissen über kognitive Verzerrungen.</p>
+
+            <div class="setting">
+                <span class="setting-label">Fragetyp</span>
+                <div class="option-group" data-setting="mode">
+                    <button class="chip active" data-value="mixed">Gemischt</button>
+                    <button class="chip" data-value="term">Begriff → Bedeutung</button>
+                    <button class="chip" data-value="scenario">Beispiel → Begriff</button>
+                </div>
+            </div>
+
+            <div class="setting">
+                <span class="setting-label">Kategorie</span>
+                <div class="option-group" data-setting="cat">
+                    <button class="chip active" data-value="all">Alle</button>
+                    <button class="chip" data-value="entscheidung">Entscheidung</button>
+                    <button class="chip" data-value="sozial">Sozial</button>
+                    <button class="chip" data-value="gedaechtnis">Gedächtnis</button>
+                    <button class="chip" data-value="methodik">Methodik/Statistik</button>
+                    <button class="chip" data-value="wahrnehmung">Wahrnehmung</button>
+                    <button class="chip" data-value="logik">Logik</button>
+                    <button class="chip" data-value="technik">Technik/Algorithmus</button>
+                    <button class="chip" data-value="anti-bias">Anti-Bias</button>
+                    <button class="chip" data-value="heuristik">Heuristik</button>
+                </div>
+            </div>
+
+            <div class="setting">
+                <span class="setting-label">Anzahl Fragen</span>
+                <div class="option-group" data-setting="length">
+                    <button class="chip active" data-value="10">10</button>
+                    <button class="chip" data-value="20">20</button>
+                    <button class="chip" data-value="0">Endlos</button>
+                </div>
+            </div>
+
+            <button id="start-btn" class="primary-btn wide">Quiz starten</button>
+
+            <!-- Installations-Hinweis (wird per JS eingeblendet) -->
+            <div id="install-box" class="install-box" hidden>
+                <p id="install-text">Installiere das Quiz als App – dann ist es mit einem Tipp erreichbar und funktioniert auch offline.</p>
+                <button id="install-btn" class="secondary-btn" hidden>App installieren</button>
+            </div>
+
+            <nav class="legal">
+                <a href="../index.html">Zur Website</a> · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a>
+            </nav>
+        </section>
+
+        <!-- 2. Frage -->
+        <section id="quiz-question" class="panel" hidden>
+            <div class="progress" aria-hidden="true"><div id="q-bar" class="progress-bar"></div></div>
+
+            <div class="quiz-meta">
+                <span id="q-progress"></span>
+                <span id="q-category" class="category-tag"></span>
+            </div>
+
+            <p id="q-type" class="q-type"></p>
+            <h2 id="q-prompt" class="q-prompt"></h2>
+
+            <div id="q-options" class="q-options"></div>
+
+            <div id="q-feedback" class="q-feedback" hidden aria-live="polite"></div>
+
+            <div class="quiz-actions">
+                <button id="end-btn" class="secondary-btn">Beenden</button>
+                <button id="next-btn" class="primary-btn" hidden>Weiter</button>
+            </div>
+            <p class="key-hint">Tastatur: 1–4 zum Antworten, Enter für weiter</p>
+        </section>
+
+        <!-- 3. Auswertung -->
+        <section id="quiz-result" class="panel" hidden>
+            <h1>Auswertung</h1>
+            <p id="r-summary" class="r-summary"></p>
+            <div id="r-review"></div>
+            <div class="quiz-actions">
+                <button id="home-btn" class="secondary-btn">Einstellungen</button>
+                <button id="restart-btn" class="primary-btn">Neue Runde</button>
+            </div>
+        </section>
+
+        <!-- Fehlerfall: Daten konnten nicht geladen werden -->
+        <section id="quiz-error" class="panel" hidden>
+            <h1>Daten nicht gefunden</h1>
+            <p>Die Bias-Liste (<code>../script.js</code>) konnte nicht geladen werden. Bitte prüfe deine Internetverbindung und lade die Seite neu.</p>
+        </section>
+
+    </main>
+
+    <!-- ../script.js liefert das biases-Array (gemeinsame Datenquelle mit der Website) -->
+    <script src="../script.js"></script>
+    <script src="quiz.js"></script>
+</body>
+
+</html>

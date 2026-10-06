@@ -8,15 +8,15 @@
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
     /* Kategorie-Farben */
-    --cat-entscheidung: #df873a;
-    --cat-sozial: #9b59b6;
-    --cat-gedaechtnis: #76ec76;
-    --cat-methodik: #e31f09;
-    --cat-wahrnehmung: #1abc9c;
-    --cat-logik: #ecf064;
-    --cat-technik: #4122be;
-    --cat-anti-bias: #95a5a6;
-    --cat-heuristik: #b3f312;
+    --cat-entscheidung: #dc9e68;
+    --cat-sozial: #7d5b94;
+    --cat-gedaechtnis: #8cbf92;
+    --cat-methodik: #a8473f;
+    --cat-wahrnehmung: #2e7d70;
+    --cat-logik: #d8c66c;
+    --cat-technik: #5257a0;
+    --cat-anti-bias: #a7b3b7;
+    --cat-heuristik: #adc266;
 }
 
 body {
