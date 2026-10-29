@@ -313,6 +313,22 @@ main {
     box-shadow: 0 4px 10px var(--shadow-color);
 }
 
+#bias-of-the-day .bod-label {
+    margin: 0 0 0.25rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-color);
+}
+
+#bias-of-the-day h3 {
+    margin: 0 0 0.5rem;
+}
+
+#bias-of-the-day p {
+    margin: 0.25rem 0;
+}
+
 .a {
     text-align: center;
     color: var(--primary-bg);

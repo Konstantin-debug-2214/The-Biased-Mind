@@ -16,18 +16,6 @@
  */
 
 
-//Bias des Tages/ Bias of the Day
-// card.innerHTML = `
-//     <span class="category">${biases[randomIndex].cat}</span>
-//     <h3>${biases[randomIndex].name}</h3>
-//     <p>${biases[randomIndex].desc}</p>
-//     <p><strong>Beispiel:</strong> ${biases[randomIndex].example}</p>
-// `;
-
-
-
-
-
 const biases = [
             // ENTSCHEIDUNG //78
     { name: "Action Bias (Handlungsdrang)", cat: "entscheidung", desc: "Der Drang, aktiv zu handeln, selbst wenn Abwarten die bessere Strategie wäre.", example: "Ein Fußballtorhüter springt bei einem Elfmeter fast immer in eine Ecke – obwohl statistisch gesehen das Stehenbleiben in der Mitte erfolgreicher wäre." },
@@ -396,6 +384,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const filterContainer = document.getElementById('filter-container');
     const sortContainer = document.getElementById('sort-container');
+
+    // Bias des Tages: Aus dem heutigen Datum wird ein fester Index berechnet,
+    // sodass am selben Tag alle Besucher denselben Bias sehen und er täglich wechselt.
+    const bodName = document.getElementById('bod-name');
+    if (bodName) {
+        const today = new Date();
+        const dayNumber = Math.floor(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) / 86400000);
+        // Multiplikation mit großer Primzahl verteilt aufeinanderfolgende Tage über alle Kategorien
+        const bias = biases[(dayNumber * 2654435761) % biases.length];
+
+        bodName.textContent = bias.name;
+        document.getElementById('bod-desc').textContent = bias.desc;
+        document.getElementById('bod-example').innerHTML = `<strong>Beispiel:</strong> <em>${bias.example}</em>`;
+    }
 
     // Auf Seiten ohne Karten-Grid (z. B. quiz.html) wird nur das biases-Array benötigt
     if (!grid) return;
