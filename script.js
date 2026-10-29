@@ -512,5 +512,31 @@ document.addEventListener('DOMContentLoaded', () => {
         update();
     };
 
+    // Umschaltbare Ansicht (Karten/Liste): Die Klasse sitzt auf dem Grid und überdauert
+    // daher jedes Neu-Rendern durch Suche, Filter und Sortierung. Wahl wird im Browser gespeichert.
+    const viewContainer = document.getElementById('view-container');
+    const VIEW_KEY = 'tbm-view';
+
+    function setView(view) {
+        grid.classList.toggle('list-view', view === 'list');
+        viewContainer.querySelectorAll('.view-btn').forEach(btn => {
+            const isActive = btn.dataset.view === view;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', String(isActive));
+        });
+        try { localStorage.setItem(VIEW_KEY, view); } catch (e) { /* privater Modus o. ä. */ }
+    }
+
+    if (viewContainer) {
+        viewContainer.onclick = (e) => {
+            const btn = e.target.closest('.view-btn');
+            if (btn) setView(btn.dataset.view);
+        };
+
+        let savedView = 'cards';
+        try { savedView = localStorage.getItem(VIEW_KEY) || 'cards'; } catch (e) {}
+        setView(savedView === 'list' ? 'list' : 'cards');
+    }
+
     renderCards(biases);
 });

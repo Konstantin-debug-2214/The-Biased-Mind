@@ -69,10 +69,16 @@
             <button class="filter-btn" data-filter="anti-bias">Anti-Bias</button>
             <button class="filter-btn" data-filter="heuristik">Heuristik</button>
         </div>
-        <div class="sort-controls" id="sort-container">
-            <button class="sort-btn active" data-sort="default">Standard</button>
-            <button class="sort-btn" data-sort="asc">A-Z</button>
-            <button class="sort-btn" data-sort="desc">Z-A</button>
+        <div class="controls-row">
+            <div class="sort-controls" id="sort-container">
+                <button class="sort-btn active" data-sort="default">Standard</button>
+                <button class="sort-btn" data-sort="asc">A-Z</button>
+                <button class="sort-btn" data-sort="desc">Z-A</button>
+            </div>
+            <div class="view-controls" id="view-container" role="group" aria-label="Ansicht wählen">
+                <button class="view-btn active" type="button" data-view="cards" aria-pressed="true">Karten</button>
+                <button class="view-btn" type="button" data-view="list" aria-pressed="false">Liste</button>
+            </div>
         </div>
     </div>
 

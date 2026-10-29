@@ -81,14 +81,23 @@ header h1 span {
     margin: 0 auto;
 }
 
-.filter-controls, .sort-controls {
+.filter-controls, .sort-controls, .view-controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
 }
 
-.filter-btn, .sort-btn {
+/* Sortierung und Ansicht-Umschalter teilen sich eine Zeile */
+.controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+}
+
+.filter-btn, .sort-btn, .view-btn {
     background-color: var(--card-bg);
     color: var(--header-color);
     border: 1px solid #ddd;
@@ -103,7 +112,7 @@ header h1 span {
 /* Hover-Effekte nur bei echter Maus – auf Touch-Geräten würden sie nach dem Antippen „kleben“.
    Steht vor .active, damit aktive Buttons beim Überfahren ihr Aussehen behalten. */
 @media (hover: hover) and (pointer: fine) {
-    .filter-btn:hover, .sort-btn:hover {
+    .filter-btn:hover, .sort-btn:hover, .view-btn:hover {
         border-color: var(--accent-color);
         color: var(--accent-color);
     }
@@ -179,9 +188,13 @@ header h1 span {
     .back-to-top:hover {
         background-color: #f97316;
     }
+
+    .list-view .bias-card:hover {
+        transform: none;
+    }
 }
 
-.filter-btn.active, .sort-btn.active {
+.filter-btn.active, .sort-btn.active, .view-btn.active {
     background-color: var(--header-color);
     color: white;
     border-color: var(--header-color);
@@ -206,11 +219,11 @@ main {
     box-shadow: 0 5px 15px var(--shadow-color);
     cursor: pointer;
     position: relative;
-    border-top: 5px solid #ccc;
+    border-top: 5px solid var(--cat-color, #ccc);
     transition: transform 0.2s ease;
 }
 /* Touch-Feedback statt grauem Tipp-Highlight */
-.bias-card, .filter-btn, .sort-btn {
+.bias-card, .filter-btn, .sort-btn, .view-btn {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -220,39 +233,39 @@ main {
 
 /* Hier weitere Kategorien hinzufügen */
 .bias-card[data-category="entscheidung"] {
-    border-top-color: var(--cat-entscheidung);
+    --cat-color: var(--cat-entscheidung);
 }
 
 .bias-card[data-category="sozial"] {
-    border-top-color: var(--cat-sozial);
+    --cat-color: var(--cat-sozial);
 }
 
 .bias-card[data-category="gedaechtnis"] {
-    border-top-color: var(--cat-gedaechtnis);
+    --cat-color: var(--cat-gedaechtnis);
 }
 
 .bias-card[data-category="methodik"] {
-    border-top-color: var(--cat-methodik);
+    --cat-color: var(--cat-methodik);
 }
 
 .bias-card[data-category="wahrnehmung"] {
-    border-top-color: var(--cat-wahrnehmung);
+    --cat-color: var(--cat-wahrnehmung);
 }
 
 .bias-card[data-category="logik"] {
-    border-top-color: var(--cat-logik);
+    --cat-color: var(--cat-logik);
 }
 
 .bias-card[data-category="technik"] {
-    border-top-color: var(--cat-technik);
+    --cat-color: var(--cat-technik);
 }
 
 .bias-card[data-category="anti-bias"] {
-    border-top-color: var(--cat-anti-bias);
+    --cat-color: var(--cat-anti-bias);
 }
 
 .bias-card[data-category="heuristik"] {
-    border-top-color: var(--cat-heuristik);
+    --cat-color: var(--cat-heuristik);
 }
 
 .no-results {
@@ -317,6 +330,30 @@ main {
     border-top: 1px solid #f3f4f6;
     color: #4b5563;
     font-style: italic;
+}
+
+/* Listen-Ansicht: gleiche Karten, kompakter als Zeilen mit farbigem Kategorie-Balken links */
+.bias-grid.list-view {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    max-width: 900px;
+}
+
+.list-view .bias-card {
+    padding: 0.75rem 1rem;
+    border-top: none;
+    border-left: 5px solid var(--cat-color, #ccc);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+.list-view .category-tag {
+    display: none;
+}
+
+.list-view .bias-card h2 {
+    font-size: 1rem;
+    margin: 0;
 }
 
 #bias-of-the-day {
@@ -426,8 +463,7 @@ main {
         align-items: stretch;
     }
 
-    .filter-controls,
-    .sort-controls {
+    .filter-controls {
         flex-wrap: nowrap;
         justify-content: flex-start;
         overflow-x: auto;
@@ -439,16 +475,28 @@ main {
         mask-image: linear-gradient(to right, #000 85%, transparent);
     }
 
-    .filter-controls::-webkit-scrollbar,
-    .sort-controls::-webkit-scrollbar {
+    .filter-controls::-webkit-scrollbar {
         display: none;
     }
 
     .filter-btn,
-    .sort-btn {
+    .sort-btn,
+    .view-btn {
         flex: 0 0 auto;
         white-space: nowrap;
         scroll-snap-align: start;
         min-height: 44px; /* Touch-Ziel */
+    }
+
+    /* Schritt 8: Sortierung und Ansicht passen meist in eine Zeile, sonst Umbruch in zwei */
+    .controls-row {
+        justify-content: flex-start;
+        gap: 0.5rem 1rem;
+        padding: 0 1rem;
+    }
+
+    .sort-controls,
+    .view-controls {
+        flex-wrap: nowrap;
     }
 }
