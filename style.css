@@ -362,4 +362,10 @@ main {
         box-sizing: border-box;
         width: 100%;
     }
+
+    /* Schritt 3: „Bias des Tages“ kompakter */
+    #bias-of-the-day {
+        padding: 1rem;
+        border-radius: 14px;
+    }
 }
