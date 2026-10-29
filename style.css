@@ -41,7 +41,7 @@ footer a {
 
 header h1 {
     margin: 0;
-    font-size: 2.8rem;
+    font-size: clamp(1.6rem, 7vw, 2.8rem);
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -334,4 +334,17 @@ main {
     color: var(--primary-bg);
     text-decoration: none;
 
+}
+
+
+/* ===== MOBILE (≤ 600px) ===== */
+@media (max-width: 600px) {
+    /* Schritt 1: Header-Titel */
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        letter-spacing: 1px;
+    }
 }
