@@ -415,8 +415,12 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <span class="category-tag">${bias.cat}</span>
                 <h2>${bias.name}</h2>
-                <p class="description">${bias.desc}</p>
-                <p class="example"><em>${bias.example}</em></p>
+                <div class="card-details">
+                    <div class="card-details-inner">
+                        <p class="description">${bias.desc}</p>
+                        <p class="example"><em>${bias.example}</em></p>
+                    </div>
+                </div>
             `;
 
             // oben: Um Beispiele/ example anzuzeigen, muss im biases Array ein entsprechendes Feld mit Text gefüllt werden. Sonst wird es leer angezeigt.

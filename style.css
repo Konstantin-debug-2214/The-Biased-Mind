@@ -276,43 +276,43 @@ main {
     font-size: 1.15rem;
 }
 
-.bias-card .description {
-    max-height: 0;
-    opacity: 0;
+/* Aufklappen per grid-template-rows 0fr → 1fr: animiert auf die echte Inhaltshöhe,
+   ohne feste max-height, die lange Texte auf schmalen Bildschirmen abschneiden würde */
+.card-details {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.card-details-inner {
     overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    min-height: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bias-card.active .card-details {
+    grid-template-rows: 1fr;
+}
+
+.bias-card.active .card-details-inner {
+    opacity: 1;
+}
+
+.bias-card .description {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
     font-size: 0.9rem;
     color: #555;
 }
 
-.bias-card.active .description {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 1rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid #eee;
-
-
-}
-
 .bias-card .example {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    color: #4b5563;
-    font-style: italic;
-    border-top: 0px solid transparent;
-}
-
-/* Nur wenn die Karte .active ist, wird das Beispiel angezeigt */
-.bias-card.active .example {
-    max-height: 200px;
-    /* Genug Platz für den Text */
-    opacity: 1;
     margin-top: 1rem;
     padding-top: 0.5rem;
     border-top: 1px solid #f3f4f6;
+    color: #4b5563;
+    font-style: italic;
 }
 
 #bias-of-the-day {
