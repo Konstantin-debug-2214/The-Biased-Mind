@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Biased Mind - Kognitive Verzerrungen</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -86,6 +86,14 @@
         <p>&copy; 2026 The Biased Mind</p><br>
         <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
     </footer>
+
+    <!-- Nach-oben-Button: wird per script.js nach einer Bildschirmhöhe Scrolltiefe eingeblendet -->
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="Nach oben">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path d="M12 5l-7 7m7-7l7 7M12 5v14" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>

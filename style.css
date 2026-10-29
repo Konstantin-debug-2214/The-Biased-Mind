@@ -175,6 +175,10 @@ header h1 span {
         color: var(--header-color);
         box-shadow: 0 0 12px rgba(179, 243, 18, 0.10);
     }
+
+    .back-to-top:hover {
+        background-color: #f97316;
+    }
 }
 
 .filter-btn.active, .sort-btn.active {
@@ -339,6 +343,40 @@ main {
 
 #bias-of-the-day p {
     margin: 0.25rem 0;
+}
+
+/* Nach-oben-Button (alle Bildschirmgrößen) */
+.back-to-top {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: calc(1rem + env(safe-area-inset-bottom));
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--header-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+}
+
+.back-to-top:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
 }
 
 .a {

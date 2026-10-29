@@ -399,6 +399,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('bod-example').innerHTML = `<strong>Beispiel:</strong> <em>${bias.example}</em>`;
     }
 
+    // Nach-oben-Button: erscheint nach einer Bildschirmhöhe Scrolltiefe
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        const toggleBackToTop = () =>
+            backToTop.classList.toggle('visible', window.scrollY > window.innerHeight);
+        window.addEventListener('scroll', toggleBackToTop, { passive: true });
+        toggleBackToTop();
+
+        backToTop.addEventListener('click', () => {
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+        });
+    }
+
     // Auf Seiten ohne Karten-Grid (z. B. quiz.html) wird nur das biases-Array benötigt
     if (!grid) return;
 
