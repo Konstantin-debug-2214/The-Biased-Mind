@@ -486,6 +486,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!e.target.classList.contains('filter-btn')) return;
         filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         e.target.classList.add('active');
+        // Auf dem Handy ist die Filterzeile wischbar: angetippten Filter vollständig sichtbar machen
+        e.target.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' });
         update();
     };
 

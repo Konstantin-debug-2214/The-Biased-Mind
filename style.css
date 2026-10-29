@@ -380,4 +380,37 @@ main {
         padding: 1rem;
         border-radius: 14px;
     }
+
+    /* Schritt 6: Filter und Sortierung als waagerecht wischbare Zeilen */
+    .controls-container {
+        padding: 1rem 0 0;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+
+    .filter-controls,
+    .sort-controls {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0 1rem 0.25rem;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+        /* Ausblenden am rechten Rand signalisiert: hier geht's weiter */
+        -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+        mask-image: linear-gradient(to right, #000 85%, transparent);
+    }
+
+    .filter-controls::-webkit-scrollbar,
+    .sort-controls::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn,
+    .sort-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        scroll-snap-align: start;
+        min-height: 44px; /* Touch-Ziel */
+    }
 }
