@@ -117,7 +117,7 @@ main {
 
 .bias-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 1.5rem;
     max-width: 1400px;
     margin: 0 auto;
@@ -346,5 +346,20 @@ main {
 
     header h1 {
         letter-spacing: 1px;
+    }
+
+    /* Schritt 2: Karten-Grid ohne horizontales Scrollen */
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    .bias-grid {
+        gap: 1rem;
+    }
+
+    /* Suchfeld: Padding und Rand in die Breite einrechnen, sonst ragt es über den Rand */
+    #searchInput {
+        box-sizing: border-box;
+        width: 100%;
     }
 }
