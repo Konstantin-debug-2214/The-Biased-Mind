@@ -41,7 +41,7 @@ footer a {
 
 header h1 {
     margin: 0;
-    font-size: 2.8rem;
+    font-size: clamp(1.6rem, 7vw, 2.8rem);
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -81,14 +81,23 @@ header h1 span {
     margin: 0 auto;
 }
 
-.filter-controls, .sort-controls {
+.filter-controls, .sort-controls, .view-controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
 }
 
-.filter-btn, .sort-btn {
+/* Sortierung und Ansicht-Umschalter teilen sich eine Zeile */
+.controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+}
+
+.filter-btn, .sort-btn, .view-btn {
     background-color: var(--card-bg);
     color: var(--header-color);
     border: 1px solid #ddd;
@@ -100,12 +109,92 @@ header h1 span {
     transition: all 0.2s ease;
 }
 
-.filter-btn:hover, .sort-btn:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
+/* Hover-Effekte nur bei echter Maus – auf Touch-Geräten würden sie nach dem Antippen „kleben“.
+   Steht vor .active, damit aktive Buttons beim Überfahren ihr Aussehen behalten. */
+@media (hover: hover) and (pointer: fine) {
+    .filter-btn:hover, .sort-btn:hover, .view-btn:hover {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+    }
+
+    .bias-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Glow-Effekt für Filter-Buttons */
+    .filter-btn[data-filter="entscheidung"]:hover {
+        background-color: var(--cat-entscheidung);
+        border-color: var(--cat-entscheidung);
+        color: var(--header-color);
+        box-shadow: 0 0 12px rgba(223, 135, 58, 0.10);
+    }
+
+    .filter-btn[data-filter="sozial"]:hover {
+        background-color: var(--cat-sozial);
+        border-color: var(--cat-sozial);
+        color: var(--header-color);
+        box-shadow: 0 0 12px rgba(155, 89, 182, 0.10);
+    }
+
+    .filter-btn[data-filter="gedaechtnis"]:hover {
+        background-color: var(--cat-gedaechtnis);
+        border-color: var(--cat-gedaechtnis);
+        color: var(--header-color);
+        box-shadow: 0 0 12px rgba(118, 236, 118, 0.10);
+    }
+
+    .filter-btn[data-filter="methodik"]:hover {
+        background-color: var(--cat-methodik);
+        border-color: var(--cat-methodik);
+        color: var(--header-color);
+        box-shadow: 0 0 12px rgba(227, 31, 9, 0.10);
+    }
+
+    .filter-btn[data-filter="wahrnehmung"]:hover {
+        background-color: var(--cat-wahrnehmung);
+        border-color: var(--cat-wahrnehmung);
+        color: var(--header-color);
+        box-shadow: 0 0 12px rgba(26, 188, 156, 0.10);
+    }
+
+    .filter-btn[data-filter="logik"]:hover {
+        background-color: var(--cat-logik);
+        border-color: var(--cat-logik);
+        color: var(--header-color);
+        box-shadow: 0 0 12px rgba(236, 240, 100, 0.10);
+    }
+
+    .filter-btn[data-filter="technik"]:hover {
+        background-color: var(--cat-technik);
+        border-color: var(--cat-technik);
+        color: var(--header-color);
+        box-shadow: 0 0 12px rgba(65, 34, 190, 0.10);
+    }
+
+    .filter-btn[data-filter="anti-bias"]:hover {
+        background-color: var(--cat-anti-bias);
+        border-color: var(--cat-anti-bias);
+        color: var(--header-color);
+        box-shadow: 0 0 12px rgba(149, 165, 166, 0.10);
+    }
+
+    .filter-btn[data-filter="heuristik"]:hover {
+        background-color: var(--cat-heuristik);
+        border-color: var(--cat-heuristik);
+        color: var(--header-color);
+        box-shadow: 0 0 12px rgba(179, 243, 18, 0.10);
+    }
+
+    .back-to-top:hover {
+        background-color: #f97316;
+    }
+
+    .list-view .bias-card:hover {
+        transform: none;
+    }
 }
 
-.filter-btn.active, .sort-btn.active {
+.filter-btn.active, .sort-btn.active, .view-btn.active {
     background-color: var(--header-color);
     color: white;
     border-color: var(--header-color);
@@ -117,7 +206,7 @@ main {
 
 .bias-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 1.5rem;
     max-width: 1400px;
     margin: 0 auto;
@@ -130,48 +219,53 @@ main {
     box-shadow: 0 5px 15px var(--shadow-color);
     cursor: pointer;
     position: relative;
-    border-top: 5px solid #ccc;
+    border-top: 5px solid var(--cat-color, #ccc);
     transition: transform 0.2s ease;
 }
+/* Touch-Feedback statt grauem Tipp-Highlight */
+.bias-card, .filter-btn, .sort-btn, .view-btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bias-card:active {
+    transform: scale(0.99);
+}
+
 /* Hier weitere Kategorien hinzufügen */
 .bias-card[data-category="entscheidung"] {
-    border-top-color: var(--cat-entscheidung);
+    --cat-color: var(--cat-entscheidung);
 }
 
 .bias-card[data-category="sozial"] {
-    border-top-color: var(--cat-sozial);
+    --cat-color: var(--cat-sozial);
 }
 
 .bias-card[data-category="gedaechtnis"] {
-    border-top-color: var(--cat-gedaechtnis);
+    --cat-color: var(--cat-gedaechtnis);
 }
 
 .bias-card[data-category="methodik"] {
-    border-top-color: var(--cat-methodik);
+    --cat-color: var(--cat-methodik);
 }
 
 .bias-card[data-category="wahrnehmung"] {
-    border-top-color: var(--cat-wahrnehmung);
+    --cat-color: var(--cat-wahrnehmung);
 }
 
 .bias-card[data-category="logik"] {
-    border-top-color: var(--cat-logik);
+    --cat-color: var(--cat-logik);
 }
 
 .bias-card[data-category="technik"] {
-    border-top-color: var(--cat-technik);
+    --cat-color: var(--cat-technik);
 }
 
 .bias-card[data-category="anti-bias"] {
-    border-top-color: var(--cat-anti-bias);
+    --cat-color: var(--cat-anti-bias);
 }
 
 .bias-card[data-category="heuristik"] {
-    border-top-color: var(--cat-heuristik);
-}
-
-.bias-card:hover {
-    transform: translateY(-5px);
+    --cat-color: var(--cat-heuristik);
 }
 
 .no-results {
@@ -199,108 +293,67 @@ main {
     font-size: 1.15rem;
 }
 
-.bias-card .description {
-    max-height: 0;
-    opacity: 0;
+/* Aufklappen per grid-template-rows 0fr → 1fr: animiert auf die echte Inhaltshöhe,
+   ohne feste max-height, die lange Texte auf schmalen Bildschirmen abschneiden würde */
+.card-details {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.card-details-inner {
     overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    min-height: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bias-card.active .card-details {
+    grid-template-rows: 1fr;
+}
+
+.bias-card.active .card-details-inner {
+    opacity: 1;
+}
+
+.bias-card .description {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
     font-size: 0.9rem;
     color: #555;
 }
 
-.bias-card.active .description {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 1rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid #eee;
-
-
-}
-
 .bias-card .example {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    color: #4b5563;
-    font-style: italic;
-    border-top: 0px solid transparent;
-}
-
-/* Nur wenn die Karte .active ist, wird das Beispiel angezeigt */
-.bias-card.active .example {
-    max-height: 200px;
-    /* Genug Platz für den Text */
-    opacity: 1;
     margin-top: 1rem;
     padding-top: 0.5rem;
     border-top: 1px solid #f3f4f6;
+    color: #4b5563;
+    font-style: italic;
 }
 
-/* Glow-Effekt für Filter-Buttons */
-
-.filter-btn[data-filter="entscheidung"]:hover {
-    background-color: var(--cat-entscheidung);
-    border-color: var(--cat-entscheidung);
-    color: var(--header-color);
-    box-shadow: 0 0 12px rgba(223, 135, 58, 0.10);
+/* Listen-Ansicht: gleiche Karten, kompakter als Zeilen mit farbigem Kategorie-Balken links */
+.bias-grid.list-view {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    max-width: 900px;
 }
 
-.filter-btn[data-filter="sozial"]:hover {
-    background-color: var(--cat-sozial);
-    border-color: var(--cat-sozial);
-    color: var(--header-color);
-    box-shadow: 0 0 12px rgba(155, 89, 182, 0.10);
-}   
-
-.filter-btn[data-filter="gedaechtnis"]:hover {
-    background-color: var(--cat-gedaechtnis);
-    border-color: var(--cat-gedaechtnis);
-    color: var(--header-color);
-    box-shadow: 0 0 12px rgba(118, 236, 118, 0.10);
+.list-view .bias-card {
+    padding: 0.75rem 1rem;
+    border-top: none;
+    border-left: 5px solid var(--cat-color, #ccc);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--shadow-color);
 }
 
-.filter-btn[data-filter="methodik"]:hover {
-    background-color: var(--cat-methodik);
-    border-color: var(--cat-methodik);
-    color: var(--header-color);
-    box-shadow: 0 0 12px rgba(227, 31, 9, 0.10);
-}       
-
-.filter-btn[data-filter="wahrnehmung"]:hover {
-    background-color: var(--cat-wahrnehmung);
-    border-color: var(--cat-wahrnehmung);
-    color: var(--header-color);
-    box-shadow: 0 0 12px rgba(26, 188, 156, 0.10);
+.list-view .category-tag {
+    display: none;
 }
 
-.filter-btn[data-filter="logik"]:hover {
-    background-color: var(--cat-logik);
-    border-color: var(--cat-logik);
-    color: var(--header-color);
-    box-shadow: 0 0 12px rgba(236, 240, 100, 0.10);
-}
-
-.filter-btn[data-filter="technik"]:hover {
-    background-color: var(--cat-technik);
-    border-color: var(--cat-technik);
-    color: var(--header-color);
-    box-shadow: 0 0 12px rgba(65, 34, 190, 0.10);
-}
-
-.filter-btn[data-filter="anti-bias"]:hover {
-    background-color: var(--cat-anti-bias);
-    border-color: var(--cat-anti-bias);
-    color: var(--header-color);
-    box-shadow: 0 0 12px rgba(149, 165, 166, 0.10);
-}
-
-.filter-btn[data-filter="heuristik"]:hover {
-    background-color: var(--cat-heuristik);
-    border-color: var(--cat-heuristik);
-    color: var(--header-color);
-    box-shadow: 0 0 12px rgba(179, 243, 18, 0.10);
+.list-view .bias-card h2 {
+    font-size: 1rem;
+    margin: 0;
 }
 
 #bias-of-the-day {
@@ -329,9 +382,121 @@ main {
     margin: 0.25rem 0;
 }
 
+/* Nach-oben-Button (alle Bildschirmgrößen) */
+.back-to-top {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: calc(1rem + env(safe-area-inset-bottom));
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--header-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+}
+
+.back-to-top:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
 .a {
     text-align: center;
     color: var(--primary-bg);
     text-decoration: none;
 
+}
+
+
+/* ===== MOBILE (≤ 600px) ===== */
+@media (max-width: 600px) {
+    /* Schritt 1: Header-Titel */
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        letter-spacing: 1px;
+    }
+
+    /* Schritt 2: Karten-Grid ohne horizontales Scrollen */
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    .bias-grid {
+        gap: 1rem;
+    }
+
+    /* Suchfeld: Padding und Rand in die Breite einrechnen, sonst ragt es über den Rand */
+    #searchInput {
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    /* Schritt 3: „Bias des Tages“ kompakter */
+    #bias-of-the-day {
+        padding: 1rem;
+        border-radius: 14px;
+    }
+
+    /* Schritt 6: Filter und Sortierung als waagerecht wischbare Zeilen */
+    .controls-container {
+        padding: 1rem 0 0;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+
+    .filter-controls {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0 1rem 0.25rem;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+        /* Ausblenden am rechten Rand signalisiert: hier geht's weiter */
+        -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+        mask-image: linear-gradient(to right, #000 85%, transparent);
+    }
+
+    .filter-controls::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn,
+    .sort-btn,
+    .view-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        scroll-snap-align: start;
+        min-height: 44px; /* Touch-Ziel */
+    }
+
+    /* Schritt 8: Sortierung und Ansicht passen meist in eine Zeile, sonst Umbruch in zwei */
+    .controls-row {
+        justify-content: flex-start;
+        gap: 0.5rem 1rem;
+        padding: 0 1rem;
+    }
+
+    .sort-controls,
+    .view-controls {
+        flex-wrap: nowrap;
+    }
 }
