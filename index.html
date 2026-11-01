@@ -3,10 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Biased Mind - Kognitive Verzerrungen</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -31,7 +33,7 @@
             <p class="intro-text">
                 Kognitive Verzerrungen sind systematische Fehler in der Wahrnehmung, Erinnerung und Bewertung von
                 Informationen – sie beeinflussen, oft unbemerkt, unsere Entscheidungen und Urteile. Diese Webseite gibt
-                einen kompakten Überblick über mehr als 333 dieser Denkfallen, kategorisiert und jeweils mit einem
+                einen kompakten Überblick über mehr als 300 dieser Denkfallen, kategorisiert und jeweils mit einem
                 anschaulichen <strong><em>Beispiel in kursiv</em></strong> erklärt.<br>
                 <br>Der Anspruch dabei ist nicht Vollständigkeit, sondern <strong>Zugänglichkeit und Inspiration</strong> –
                 es dient als Zugang zu den vielfältigen Verzerrungen, die unser Denken prägen. Damit die Navigation
@@ -50,7 +52,7 @@
             </p>
         </section>
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Suche in über 333 Verzerrungen...">
+            <input type="text" id="searchInput" placeholder="Suche in über 300 Verzerrungen...">
         </div>
 
 
@@ -69,16 +71,10 @@
             <button class="filter-btn" data-filter="anti-bias">Anti-Bias</button>
             <button class="filter-btn" data-filter="heuristik">Heuristik</button>
         </div>
-        <div class="controls-row">
-            <div class="sort-controls" id="sort-container">
-                <button class="sort-btn active" data-sort="default">Standard</button>
-                <button class="sort-btn" data-sort="asc">A-Z</button>
-                <button class="sort-btn" data-sort="desc">Z-A</button>
-            </div>
-            <div class="view-controls" id="view-container" role="group" aria-label="Ansicht wählen">
-                <button class="view-btn active" type="button" data-view="cards" aria-pressed="true">Karten</button>
-                <button class="view-btn" type="button" data-view="list" aria-pressed="false">Liste</button>
-            </div>
+        <div class="sort-controls" id="sort-container">
+            <button class="sort-btn active" data-sort="default">Standard</button>
+            <button class="sort-btn" data-sort="asc">A-Z</button>
+            <button class="sort-btn" data-sort="desc">Z-A</button>
         </div>
     </div>
 
@@ -92,14 +88,6 @@
         <p>&copy; 2026 The Biased Mind</p><br>
         <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
     </footer>
-
-    <!-- Nach-oben-Button: wird per script.js nach einer Bildschirmhöhe Scrolltiefe eingeblendet -->
-    <button id="back-to-top" class="back-to-top" type="button" aria-label="Nach oben">
-        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path d="M12 5l-7 7m7-7l7 7M12 5v14" fill="none" stroke="currentColor"
-                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
 
     <script src="script.js"></script>
 </body>

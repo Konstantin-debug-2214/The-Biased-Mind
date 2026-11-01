@@ -396,21 +396,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         bodName.textContent = bias.name;
         document.getElementById('bod-desc').textContent = bias.desc;
-        document.getElementById('bod-example').innerHTML = `<strong>Beispiel:</strong> <em>${bias.example}</em>`;
-    }
-
-    // Nach-oben-Button: erscheint nach einer Bildschirmhöhe Scrolltiefe
-    const backToTop = document.getElementById('back-to-top');
-    if (backToTop) {
-        const toggleBackToTop = () =>
-            backToTop.classList.toggle('visible', window.scrollY > window.innerHeight);
-        window.addEventListener('scroll', toggleBackToTop, { passive: true });
-        toggleBackToTop();
-
-        backToTop.addEventListener('click', () => {
-            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-        });
+        // Beispiel ohne innerHTML aufbauen: Texte aus den Daten werden nie als HTML interpretiert
+        const bodExample = document.getElementById('bod-example');
+        const label = document.createElement('strong');
+        label.textContent = 'Beispiel:';
+        const exampleText = document.createElement('em');
+        exampleText.textContent = bias.example;
+        bodExample.replaceChildren(label, ' ', exampleText);
     }
 
     // Auf Seiten ohne Karten-Grid (z. B. quiz.html) wird nur das biases-Array benötigt
@@ -426,16 +418,26 @@ document.addEventListener('DOMContentLoaded', () => {
             card.dataset.example = bias.example;
             
            
-            card.innerHTML = `
-                <span class="category-tag">${bias.cat}</span>
-                <h2>${bias.name}</h2>
-                <div class="card-details">
-                    <div class="card-details-inner">
-                        <p class="description">${bias.desc}</p>
-                        <p class="example"><em>${bias.example}</em></p>
-                    </div>
-                </div>
-            `;
+            // Karte per createElement + textContent bauen statt innerHTML:
+            // Inhalte aus den Daten werden so immer als reiner Text eingefügt.
+            const tag = document.createElement('span');
+            tag.className = 'category-tag';
+            tag.textContent = bias.cat;
+
+            const title = document.createElement('h2');
+            title.textContent = bias.name;
+
+            const desc = document.createElement('p');
+            desc.className = 'description';
+            desc.textContent = bias.desc;
+
+            const example = document.createElement('p');
+            example.className = 'example';
+            const exampleText = document.createElement('em');
+            exampleText.textContent = bias.example;
+            example.appendChild(exampleText);
+
+            card.append(tag, title, desc, example);
 
             // oben: Um Beispiele/ example anzuzeigen, muss im biases Array ein entsprechendes Feld mit Text gefüllt werden. Sonst wird es leer angezeigt.
             
@@ -500,8 +502,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!e.target.classList.contains('filter-btn')) return;
         filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         e.target.classList.add('active');
-        // Auf dem Handy ist die Filterzeile wischbar: angetippten Filter vollständig sichtbar machen
-        e.target.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' });
         update();
     };
 
@@ -511,32 +511,6 @@ document.addEventListener('DOMContentLoaded', () => {
         e.target.classList.add('active');
         update();
     };
-
-    // Umschaltbare Ansicht (Karten/Liste): Die Klasse sitzt auf dem Grid und überdauert
-    // daher jedes Neu-Rendern durch Suche, Filter und Sortierung. Wahl wird im Browser gespeichert.
-    const viewContainer = document.getElementById('view-container');
-    const VIEW_KEY = 'tbm-view';
-
-    function setView(view) {
-        grid.classList.toggle('list-view', view === 'list');
-        viewContainer.querySelectorAll('.view-btn').forEach(btn => {
-            const isActive = btn.dataset.view === view;
-            btn.classList.toggle('active', isActive);
-            btn.setAttribute('aria-pressed', String(isActive));
-        });
-        try { localStorage.setItem(VIEW_KEY, view); } catch (e) { /* privater Modus o. ä. */ }
-    }
-
-    if (viewContainer) {
-        viewContainer.onclick = (e) => {
-            const btn = e.target.closest('.view-btn');
-            if (btn) setView(btn.dataset.view);
-        };
-
-        let savedView = 'cards';
-        try { savedView = localStorage.getItem(VIEW_KEY) || 'cards'; } catch (e) {}
-        setView(savedView === 'list' ? 'list' : 'cards');
-    }
 
     renderCards(biases);
 });
